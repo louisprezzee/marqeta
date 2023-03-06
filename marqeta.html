@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .container {
+            width: 100%;
+            background-color: #81D8D0;
+            color: #000;
+            border-radius: 8.85px;
+            display: flex;
+            flex-direction: column;
+            height: 95vh;
+        }
+
+        .card {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card .pan iframe body {
+            text-align: center;
+        }
+
+        .container .cvv {
+            margin: 0 0 24px 16px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="card">
+
+        <div id='mq-card-pan' class="pan">
+
+        </div>
+        <div id='mq-card-exp' class="exp">
+
+        </div>
+    </div>
+
+    <div id='mq-card-cvv' class="cvv"></div>
+
+</div>
+
+
+<script src="https://widgets-sandbox.marqeta.com/marqetajs/2.0.0/marqeta.min.js" type="text/javascript"></script>
+<script>
+        const styles = {
+            cardPan: {
+                styles: {
+                    span: {
+                            "font-weight": "bold",
+                            "font-size": "16px",
+                            "letter-space": "0.5px"
+                        }
+                    }
+            },
+
+        };
+        marqeta.bootstrap({
+            "clientAccessToken": "eyJ0b2tlbiI6ICI5MzlkMzE0Yy00YjE1LTQ2MDktYTEzZi01OWUzNDkxY2Y5NzcmYXBwbGljYXRpb25fdG9rZW49cHphdV9zYW5kYm94X2FwaV9jb25zdW1lciIsICJhcHBsaWNhdGlvbiI6IHsidG9rZW4iOiJwemF1X3NhbmRib3hfYXBpX2NvbnN1bWVyIiwiYWN0aXZlIjp0cnVlLCJjbGllbnRfYXBpX2Jhc2VfdXJsIjoiaHR0cHM6Ly93aWRnZXRzLXNhbmRib3gubWFycWV0YS5jb20vY2xpZW50L2FwaS92MSIsImFzc2V0c191cmwiOiJodHRwczovL3dpZGdldHMtc2FuZGJveC5tYXJxZXRhLmNvbS9jbGllbnQvYXNzZXRzLzEuMS4wIiwiY2xpZW50dG9rZW5hcHBsaWNhdGlvbl9pZCI6IjY0MDBiNWI5MjU0OGE2MDAwMTQ1NzlmNSJ9LCAiYXBwbGljYXRpb25fdG9rZW4iOiBudWxsLCAiZXhwaXJlcyI6ICIyMDIzLTAzLTA2VDA3OjI0OjAzKzAwMDAiLCAiY2FyZF90b2tlbiI6ICJiYzY2MmYwMy0xOWZlLTRmZDctYmU2NC03OGJhNDU0MzliMWQiLCAiYWNjZXNzZWQiOiBudWxsLCAiY2xpZW50dG9rZW5faWQiOiAiNjQwNTkzZTcyNTQ4YTYwMDAxNDU5NTJhIiwgImNyZWF0ZWQiOiAiMjAyMy0wMy0wNlQwNzoxOTowMyswMDAwIn0=",
+            "component": {
+                "showPan": {
+                    "cardPan": {
+                        "domId": "mq-card-pan",
+                        "format": true,
+                        "styles": styles.cardPan.styles
+                    },
+                    "cardExp": {
+                        "domId": "mq-card-exp",
+                        "format": true,
+                        "styles": {
+                            "span": {
+                                "background": "green",
+                                "color": "white",
+                                "font-family": "monospace",
+                                "letter-spacing": "2px",
+                                "font-weight": "bold"
+                            }
+                        }
+                    },
+                    "cardCvv": {
+                        "domId": "mq-card-cvv",
+                        "styles": {
+                            "span": {
+                                "background": "green",
+                                "color": "white",
+                                "font-family": "monospace",
+                                "letter-spacing": "2px",
+                                "font-weight": "bold"
+                            }
+                        }
+                    }
+                }
+            },
+            "callbackEvents": {
+                "onSuccess": () => {
+                   resizeIFrame();
+                },
+                "onFailure": error => {
+                    console.log(error);
+                }
+            }
+        });
+
+</script>
+
+
+</body>
+
+</html>
